@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MentorVerse AI — App</title>
+  <meta name="description" content="MentorVerse AI — Your personalized AI career mentor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<header class="topbar">
+  <div class="topbar-left">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+    <a href="index.html" class="topbar-logo">
+      <span class="logo-hex">⬡</span>
+      MentorVerse <span class="ai-tag">AI</span>
+    </a>
+  </div>
+  <div class="topbar-center" id="mentor-badge-bar">
+    <span class="mentor-active-badge" id="active-badge">🎩 Professional Mentor</span>
+  </div>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">← Back to Home</a>
+  </div>
+</header>
+<!-- ── SIDEBAR BACKDROP (mobile) ── -->
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+<!-- ── LAYOUT ── -->
+<div class="app-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-section">
+      <label class="sidebar-label">Mentor Personality</label>
+      <div class="mentor-picker">
+        <button class="mpick active" data-personality="Professional" id="mpick-professional">🎩 Professional</button>
+        <button class="mpick" data-personality="Motivational" id="mpick-motivational">💪 Motivational</button>
+        <button class="mpick" data-personality="Gen Z" id="mpick-genz">🔥 Gen Z</button>
+        <button class="mpick" data-personality="Roast" id="mpick-roast">😈 Roast</button>
+      </div>
+      <p class="mentor-desc" id="mentor-desc">Clear, structured, and formal guidance tailored for direct learning.</p>
+    </div>
+
+    <div class="sidebar-section">
+      <label class="sidebar-label">Navigation</label>
+      <nav class="sidebar-nav">
+        <button class="snav active" data-tab="setup" id="snav-setup">📋 Profile Setup</button>
+        <button class="snav" data-tab="career" id="snav-career">🧭 Career & Skill Gap</button>
+        <button class="snav" data-tab="roadmap" id="snav-roadmap">🗺️ Roadmap & Study Plan</button>
+        <button class="snav" data-tab="projects" id="snav-projects">🛠️ Projects Space</button>
+        <button class="snav" data-tab="chat" id="snav-chat">💬 Chat with Mentor</button>
+        <button class="snav" data-tab="internship" id="snav-internship">🏢 Internship & Report</button>
+      </nav>
+    </div>
+
+    <button class="reset-btn" id="reset-btn">🔄 Reset All</button>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main-content">
+
+    <!-- ═══ TAB: SETUP ═══ -->
+    <section class="tab-panel active" id="tab-setup">
+      <div class="panel-header">
+        <h1 class="panel-title">📋 Profile Setup</h1>
+        <p class="panel-sub">Tell your mentor about yourself. This personalizes every output.</p>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Target Career Goal *</label>
+          <input type="text" id="career-goal" class="form-input" placeholder="e.g. Full Stack Web Developer, Data Scientist, AI Engineer" />
+        </div>
+        <div class="form-group">
+          <label>Core Interests</label>
+          <input type="text" id="career-interests" class="form-input" placeholder="e.g. Web design, AI, game development, scripting" />
+        </div>
+        <div class="form-group">
+          <label>Preferred Technologies / Languages</label>
+          <input type="text" id="pref-tech" class="form-input" placeholder="e.g. Python, JavaScript, React, Go" />
+        </div>
+        <div class="form-group">
+          <label>Learning Background</label>
+          <input type="text" id="background" class="form-input" placeholder="e.g. College Freshman, High school student, Self-taught" />
+        </div>
+        <div class="form-group">
+          <label>Current Skills</label>
+          <input type="text" id="current-skills" class="form-input" placeholder="e.g. HTML/CSS, Basic Python syntax, JavaScript basics" />
+        </div>
+        <div class="form-group form-row">
+          <div>
+            <label>Hours Available per Day</label>
+            <input type="number" id="hours" class="form-input" value="3" min="1" max="24" />
+          </div>
+          <div>
+            <label>Experience Level</label>
+            <select id="exp-level" class="form-input">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="next-tip">
+        <span>✅ Fill in your details, then head to <strong>Career & Skill Gap</strong> to begin!</span>
+        <button class="btn-primary" onclick="switchTab('career')">Next: Career Analysis →</button>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: CAREER & SKILL GAP ═══ -->
+    <section class="tab-panel" id="tab-career">
+      <div class="panel-header">
+        <h1 class="panel-title">🧭 Career Recommendation & Skill Gap</h1>
+        <p class="panel-sub">Discover your ideal career path and pinpoint exactly what skills to learn next.</p>
+      </div>
+      <div class="profile-banner" role="alert">
+        <span>⚠️ Your <strong>Career Goal</strong> is empty — head to <button class="banner-link" onclick="switchTab('setup')">Profile Setup</button> to fill it in first.</span>
+      </div>
+      <button class="btn-primary run-btn" id="run-career-btn" onclick="runCareerAnalysis()">
+        <span class="btn-icon">⚡</span> Generate Career Analysis & Skill Gap
+      </button>
+      <div class="two-col" id="career-output" style="display:none">
+        <div class="output-card">
+          <h3>🧭 Career Path Insights</h3>
+          <div class="md-output" id="career-rec-out"></div>
+        </div>
+        <div class="output-card">
+          <h3>🔍 Skill Gap Evaluation</h3>
+          <div class="md-output" id="skill-gap-out"></div>
+        </div>
+      </div>
+      <div class="empty-state" id="career-empty">
+        <span>⚡ Click the button above to generate your career analysis.</span>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: ROADMAP & STUDY PLAN ═══ -->
+    <section class="tab-panel" id="tab-roadmap">
+      <div class="panel-header">
+        <h1 class="panel-title">🗺️ Master Roadmap & Study Plan</h1>
+        <p class="panel-sub">Get your complete end-to-end learning roadmap with a daily/weekly study schedule.</p>
+      </div>
+      <div class="profile-banner" role="alert">
+        <span>⚠️ Your <strong>Career Goal</strong> is empty — head to <button class="banner-link" onclick="switchTab('setup')">Profile Setup</button> to fill it in first.</span>
+      </div>
+      <button class="btn-primary run-btn" id="run-roadmap-btn" onclick="runRoadmap()">
+        <span class="btn-icon">⚡</span> Generate Roadmap & Study Plan
+      </button>
+      <div class="two-col roadmap-col" id="roadmap-output" style="display:none">
+        <div class="output-card output-card--wide">
+          <h3>🗺️ Master Career Roadmap</h3>
+          <div class="md-output" id="roadmap-out"></div>
+        </div>
+        <div class="output-card">
+          <h3>📅 Actionable Study Plan</h3>
+          <div class="md-output" id="study-plan-out"></div>
+        </div>
+      </div>
+      <div class="empty-state" id="roadmap-empty">
+        <span>⚡ Click the button above to generate your roadmap.</span>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: PROJECTS ═══ -->
+    <section class="tab-panel" id="tab-projects">
+      <div class="panel-header">
+        <h1 class="panel-title">🛠️ Projects Space</h1>
+        <p class="panel-sub">Get curated project ideas or submit your own idea for AI feedback.</p>
+      </div>
+      <div class="profile-banner" role="alert">
+        <span>⚠️ Your <strong>Career Goal</strong> is empty — head to <button class="banner-link" onclick="switchTab('setup')">Profile Setup</button> to fill it in first.</span>
+      </div>
+      <div class="two-col">
+        <div class="form-card">
+          <h3>✨ Recommended Projects</h3>
+          <p class="card-desc">AI-curated projects matched to your career goal and skill level.</p>
+          <button class="btn-primary run-btn" onclick="runProjects()">
+            <span class="btn-icon">⚡</span> Generate Project Ideas
+          </button>
+          <div class="md-output mt-16" id="project-rec-out"></div>
+        </div>
+        <div class="form-card">
+          <h3>🔬 Analyze My Project Idea</h3>
+          <p class="card-desc">Submit your idea and get detailed mentor feedback.</p>
+          <label class="form-label">Project Description</label>
+          <textarea id="proj-desc" class="form-input form-textarea" placeholder="Explain what your project does, how it works, and who it is for…"></textarea>
+          <label class="form-label mt-12">Goals / Tech Stack</label>
+          <input type="text" id="proj-goal" class="form-input" placeholder="e.g. Build with React/Node, deploy to Vercel" />
+          <button class="btn-primary run-btn mt-16" onclick="runProjectAnalyzer()">
+            <span class="btn-icon">🔬</span> Analyze Project
+          </button>
+          <div class="md-output mt-16" id="project-analysis-out"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: CHAT ═══ -->
+    <section class="tab-panel" id="tab-chat">
+      <div class="panel-header">
+        <h1 class="panel-title">💬 Chat with Your Mentor</h1>
+        <p class="panel-sub">Have a live, interactive conversation with your AI career mentor.</p>
+      </div>
+      <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-welcome">
+            <div class="welcome-icon">💬</div>
+            <h3>Your mentor is ready!</h3>
+            <p>Ask anything about your career path, skills, projects, or internships.</p>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask your mentor anything…" />
+          <button class="chat-send-btn" id="chat-send" onclick="sendChat()">
+            <span>Send ↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB: INTERNSHIP & REPORT ═══ -->
+    <section class="tab-panel" id="tab-internship">
+      <div class="panel-header">
+        <h1 class="panel-title">🏢 Internship Readiness & Report</h1>
+        <p class="panel-sub">Evaluate your internship readiness and download your full career guidance report.</p>
+      </div>
+      <div class="profile-banner" role="alert">
+        <span>⚠️ Your <strong>Career Goal</strong> is empty — head to <button class="banner-link" onclick="switchTab('setup')">Profile Setup</button> to fill it in first.</span>
+      </div>
+      <div class="two-col">
+        <div class="form-card">
+          <h3>📈 Internship Readiness Analysis</h3>
+          <label class="form-label">Projects Completed (or planned)</label>
+          <textarea id="projects-completed" class="form-input form-textarea" placeholder="e.g. Personal Portfolio, To-Do App in Python, Blog with React…"></textarea>
+          <button class="btn-primary run-btn mt-16" onclick="runInternship()">
+            <span class="btn-icon">⚡</span> Evaluate Internship Readiness
+          </button>
+          <div class="md-output mt-16" id="internship-out"></div>
+        </div>
+        <div class="form-card">
+          <h3>📥 Download Career Report</h3>
+          <p class="card-desc">Compile everything into a single markdown report once you've generated guidance.</p>
+          <div id="report-status" class="report-status">
+            <span class="report-hint">⚠️ Generate content in other tabs first, then download here.</span>
+          </div>
+          <button class="btn-primary run-btn mt-16" id="download-btn" onclick="downloadReport()" disabled>
+            📥 Download Full Report (.md)
+          </button>
+          <div id="report-preview" class="report-preview" style="display:none"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ── SPINNER OVERLAY ── -->
+<div class="spinner-overlay" id="spinner-overlay" style="display:none">
+  <div class="spinner-box">
+    <div class="spinner-ring"></div>
+    <p class="spinner-msg" id="spinner-msg">Generating…</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

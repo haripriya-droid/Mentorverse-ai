@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MentorVerse AI — Learn Smarter. Build Faster. Grow with a Mentor.</title>
+  <meta name="description" content="MentorVerse AI is your AI-powered career mentor. Get personalized roadmaps, skill-gap analysis, project guidance and internship recommendations tailored for students aged 13–25." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">⬡</span>
+        <span>MentorVerse <span class="logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#personalities">Mentors</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#stack">Tech</a></li>
+      </ul>
+      <a href="#cta" class="btn-nav">Get Started</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="badge animate-fade-up">🚀 AI-Powered Career Mentorship</div>
+      <h1 class="hero-title animate-fade-up delay-1">
+        Your Career Mentor<br />
+        <span class="gradient-text">That Speaks Your Language</span>
+      </h1>
+      <p class="hero-sub animate-fade-up delay-2">
+        MentorVerse AI delivers personalized roadmaps, skill-gap analysis, study plans,
+        project guidance and internship recommendations — tailored for <strong>students aged 13–25</strong>.
+      </p>
+      <div class="hero-actions animate-fade-up delay-3">
+        <a href="#features" class="btn-primary">Explore Features</a>
+        <a href="#journey" class="btn-outline">See How It Works</a>
+      </div>
+      <div class="hero-stats animate-fade-up delay-4">
+        <div class="stat">
+          <span class="stat-num" data-target="8">0</span><span>+</span>
+          <p>AI Agents</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="4">0</span>
+          <p>Mentor Styles</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="100">0</span><span>%</span>
+          <p>Personalized</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual animate-fade-up delay-2">
+      <div class="card-float">
+        <div class="chat-preview">
+          <div class="chat-header">
+            <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+            <span class="chat-title">MentorVerse AI · Gen Z Mentor</span>
+          </div>
+          <div class="chat-body">
+            <div class="msg msg-user">I want to become an AI engineer 🚀</div>
+            <div class="msg msg-bot">
+              <span class="mentor-tag">Gen Z Mentor</span>
+              Bestie, let's get you that bag! 🔥 Here's your roadmap:<br/>
+              <span class="roadmap-tag">Python → DSA → ML → AI Projects</span><br/>
+              You're 6 months away from your first internship. Let's go!
+            </div>
+            <div class="msg msg-user">What projects should I build?</div>
+            <div class="msg msg-bot">
+              <span class="mentor-tag">Gen Z Mentor</span>
+              No cap — start with a <span class="highlight-text">Resume Screener</span>, then a
+              <span class="highlight-text">Chatbot</span>. Massive XP for your portfolio! 🎮
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROBLEM ── -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">Students are lost. <span class="gradient-text">We fix that.</span></h2>
+      <div class="problems-grid">
+        <div class="problem-card reveal">
+          <div class="problem-icon">😵</div>
+          <p>Not knowing what skills to learn next</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🌊</div>
+          <p>Overwhelmed by too many resources</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🗺️</div>
+          <p>No structured learning roadmap</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🧱</div>
+          <p>Building projects without direction</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">💼</div>
+          <p>Struggling to prepare for internships</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">😴</div>
+          <p>Losing motivation from boring content</p>
+        </div>
+      </div>
+      <div class="solution-banner reveal">
+        <p>Current platforms provide <strong>information.</strong><br/>
+        MentorVerse AI provides <strong class="gradient-text">mentorship.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-label">Core Features</div>
+      <h2 class="section-title">8 Powerful AI Agents<br /><span class="gradient-text">Working For You</span></h2>
+      <div class="features-grid">
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">01</div>
+          <div class="feature-icon">🧭</div>
+          <h3>Career Recommendation</h3>
+          <p>Personalized career paths based on your interests, skills, and goals. Get a full overview of opportunities in your chosen domain.</p>
+          <div class="feature-tags">
+            <span>Career Path</span><span>Skill Match</span><span>Opportunities</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">02</div>
+          <div class="feature-icon">🔍</div>
+          <h3>Skill Gap Analysis</h3>
+          <p>Instantly identify what you know vs. what you need to learn. Get a prioritized list of missing skills to fill the gap fast.</p>
+          <div class="feature-tags">
+            <span>Gap Detection</span><span>Priority Order</span><span>Action Plan</span>
+          </div>
+        </div>
+
+        <div class="feature-card feature-card--highlight reveal" tabindex="0">
+          <div class="feature-num">03</div>
+          <div class="feature-icon">🗺️</div>
+          <h3>Master Roadmap</h3>
+          <p>End-to-end, stage-by-stage roadmap with topics, resources, mini-projects and estimated durations. Your complete career blueprint.</p>
+          <div class="feature-tags">
+            <span>⭐ Top Priority</span><span>Resources</span><span>Mini Projects</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">04</div>
+          <div class="feature-icon">📅</div>
+          <h3>Study Planner</h3>
+          <p>Break massive roadmaps into daily, weekly and monthly tasks. Tell us your available hours — we handle the rest.</p>
+          <div class="feature-tags">
+            <span>Daily Plan</span><span>Weekly Goals</span><span>Monthly Milestones</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">05</div>
+          <div class="feature-icon">🛠️</div>
+          <h3>Project Recommendations</h3>
+          <p>Get curated project ideas matched to your career goal and skill level — with difficulty ratings, required skills and portfolio value.</p>
+          <div class="feature-tags">
+            <span>Difficulty Rated</span><span>Portfolio Value</span><span>Learning Outcomes</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">06</div>
+          <div class="feature-icon">🔬</div>
+          <h3>Project Analyzer</h3>
+          <p>Share your project idea and get an AI critique — strengths, weaknesses, missing features, improvements and resume impact.</p>
+          <div class="feature-tags">
+            <span>Strengths</span><span>Weaknesses</span><span>Resume Impact</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal" tabindex="0">
+          <div class="feature-num">07</div>
+          <div class="feature-icon">🏢</div>
+          <h3>Internship Readiness</h3>
+          <p>Know your internship readiness score, what you're missing, and exactly which types of internships to apply for right now.</p>
+          <div class="feature-tags">
+            <span>Readiness Score</span><span>Gap Analysis</span><span>Internship Types</span>
+          </div>
+        </div>
+
+        <div class="feature-card feature-card--report reveal" tabindex="0">
+          <div class="feature-num">08</div>
+          <div class="feature-icon">📄</div>
+          <h3>Career Report Download</h3>
+          <p>Download your complete personalized career guidance report — all roadmaps, plans, projects and recommendations in one place.</p>
+          <div class="feature-tags">
+            <span>Full Report</span><span>PDF Ready</span><span>All-in-One</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MENTOR PERSONALITIES ── -->
+  <section class="personalities-section" id="personalities">
+    <div class="container">
+      <div class="section-label">Mentor Styles</div>
+      <h2 class="section-title">Choose Your Mentor's <span class="gradient-text">Vibe</span></h2>
+      <p class="section-sub">Every learner is different. Pick the mentor personality that keeps you motivated.</p>
+
+      <div class="personality-tabs">
+        <button class="tab-btn active" data-tab="professional" id="tab-professional">🎩 Professional</button>
+        <button class="tab-btn" data-tab="motivational" id="tab-motivational">💪 Motivational</button>
+        <button class="tab-btn" data-tab="genz" id="tab-genz">🔥 Gen Z</button>
+        <button class="tab-btn" data-tab="roast" id="tab-roast">😈 Roast</button>
+      </div>
+
+      <div class="personality-display">
+        <div class="personality-panel active" id="panel-professional">
+          <div class="panel-icon">🎩</div>
+          <h3>Professional Mentor</h3>
+          <p class="panel-desc">Clear, structured, and formal. Gets straight to the point with actionable guidance.</p>
+          <div class="chat-bubble chat-professional">
+            <div class="bubble-label">Professional Mentor says:</div>
+            "Based on your goal of becoming a Data Scientist, Data Structures should be your next learning priority. I recommend dedicating 3 weeks to this topic with 2 hours of daily practice."
+          </div>
+          <div class="tone-chips">
+            <span>📋 Structured</span><span>🎯 Direct</span><span>📊 Data-Driven</span>
+          </div>
+        </div>
+
+        <div class="personality-panel" id="panel-motivational">
+          <div class="panel-icon">💪</div>
+          <h3>Motivational Mentor</h3>
+          <p class="panel-desc">Supportive, encouraging, and uplifting. Keeps you going when things get tough.</p>
+          <div class="chat-bubble chat-motivational">
+            <div class="bubble-label">Motivational Mentor says:</div>
+            "You've completed the Python fundamentals — that's incredible progress! 🌟 Consistency now will create long-term results. Every expert was once exactly where you are. Keep going!"
+          </div>
+          <div class="tone-chips">
+            <span>❤️ Supportive</span><span>🌟 Encouraging</span><span>🏆 Growth-Focused</span>
+          </div>
+        </div>
+
+        <div class="personality-panel" id="panel-genz">
+          <div class="panel-icon">🔥</div>
+          <h3>Gen Z Mentor</h3>
+          <p class="panel-desc">Relatable, modern, and hype. Speaks your language and makes learning feel like leveling up.</p>
+          <div class="chat-bubble chat-genz">
+            <div class="bubble-label">Gen Z Mentor says:</div>
+            "Finished Python basics? That's a HUGE XP boost for your tech journey! 🎮 No cap, you're speedrunning this. Next up: OOP and DSA — your future self is gonna thank you fr fr."
+          </div>
+          <div class="tone-chips">
+            <span>🎮 Gamified</span><span>😂 Relatable</span><span>⚡ Hype</span>
+          </div>
+        </div>
+
+        <div class="personality-panel" id="panel-roast">
+          <div class="panel-icon">😈</div>
+          <h3>Roast Mentor</h3>
+          <p class="panel-desc">Playful accountability with a side of tough love. Still respectful, still helpful — just brutally honest.</p>
+          <div class="chat-bubble chat-roast">
+            <div class="bubble-label">Roast Mentor says:</div>
+            "Three hours watching productivity videos. Ten minutes actually studying. Fascinating strategy. 🧐 Anyway, when you're ready to actually learn DSA, I'll be here. No rush — your dream job definitely isn't going anywhere."
+          </div>
+          <div class="tone-chips">
+            <span>🔥 Brutally Honest</span><span>😂 Playful</span><span>✅ Still Helpful</span>
+          </div>
+          <p class="roast-disclaimer">* Roast Mentor stays respectful — no personal attacks, no offensive language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── USER JOURNEY ── -->
+  <section class="journey-section" id="journey">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Your Journey from <span class="gradient-text">Lost to Career-Ready</span></h2>
+      <div class="journey-steps">
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">1</span></div>
+          <div class="step-content">
+            <h4>Open MentorVerse AI</h4>
+            <p>Launch the app and get ready to transform your learning journey.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">2</span></div>
+          <div class="step-content">
+            <h4>Select Mentor Personality</h4>
+            <p>Choose between Professional, Motivational, Gen Z, or Roast mentor styles.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">3</span></div>
+          <div class="step-content">
+            <h4>Enter Your Career Goal</h4>
+            <p>Tell us where you want to go — AI engineer, web dev, data scientist, and more.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">4</span></div>
+          <div class="step-content">
+            <h4>Get Skill Gap Analysis</h4>
+            <p>See exactly what you know, what you're missing, and in what order to learn it.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">5</span></div>
+          <div class="step-content">
+            <h4>Receive Your Roadmap</h4>
+            <p>Get your complete, stage-by-stage career roadmap with resources and mini-projects.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">6</span></div>
+          <div class="step-content">
+            <h4>Get Study Plan + Projects</h4>
+            <p>Receive daily/weekly tasks and curated project ideas to build your portfolio.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle"><span class="step-num">7</span></div>
+          <div class="step-content">
+            <h4>Internship Readiness</h4>
+            <p>Know your readiness score and get guidance on landing your first internship.</p>
+          </div>
+        </div>
+        <div class="step-connector reveal"></div>
+        <div class="journey-step reveal">
+          <div class="step-circle step-circle--final"><span>🎉</span></div>
+          <div class="step-content">
+            <h4>Download Career Report</h4>
+            <p>Get your full personalized career guidance report — all in one document.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK ── -->
+  <section class="stack-section" id="stack">
+    <div class="container">
+      <div class="section-label">Technology</div>
+      <h2 class="section-title">Built with <span class="gradient-text">Cutting-Edge Tech</span></h2>
+      <div class="stack-grid">
+        <div class="stack-card reveal">
+          <div class="stack-icon">🐍</div>
+          <h4>Python</h4>
+          <p>Backend Engine</p>
+        </div>
+        <div class="stack-card reveal">
+          <div class="stack-icon">✨</div>
+          <h4>Streamlit</h4>
+          <p>Frontend UI</p>
+        </div>
+        <div class="stack-card stack-card--featured reveal">
+          <div class="stack-icon">🤖</div>
+          <h4>Gemini API</h4>
+          <p>AI Engine</p>
+        </div>
+        <div class="stack-card stack-card--featured reveal">
+          <div class="stack-icon">🔧</div>
+          <h4>Google ADK</h4>
+          <p>Agent Framework</p>
+        </div>
+        <div class="stack-card reveal">
+          <div class="stack-icon">🐙</div>
+          <h4>GitHub</h4>
+          <p>Version Control</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section" id="cta">
+    <div class="cta-bg">
+      <div class="orb orb-cta-1"></div>
+      <div class="orb orb-cta-2"></div>
+    </div>
+    <div class="container cta-inner">
+      <div class="cta-badge">For Students · By Students · Powered by AI</div>
+      <h2 class="cta-title">Ready to Start Your<br /><span class="gradient-text">Career Journey?</span></h2>
+      <p class="cta-sub">Get personalized guidance from MentorVerse AI — your mentor that speaks your language.</p>
+      <div class="cta-actions">
+        <a href="app.html" class="btn-primary btn-large" id="launch-btn">🚀 Launch MentorVerse AI</a>
+        <a href="#features" class="btn-outline">Learn More</a>
+      </div>
+      <div class="motto">"Learn smarter. Build faster. Grow with a mentor that speaks your language."</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">⬡</span>
+        <span>MentorVerse <span class="logo-ai">AI</span></span>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#personalities">Mentors</a>
+        <a href="#journey">Journey</a>
+        <a href="#stack">Tech Stack</a>
+      </div>
+      <div class="footer-copy">
+        <p>Built with ❤️ using Python · Streamlit · Gemini API · Google ADK</p>
+        <p class="copy-small">© 2025 MentorVerse AI · All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

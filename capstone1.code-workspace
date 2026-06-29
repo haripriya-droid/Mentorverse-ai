@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../capstone1"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "capstone"
+	}
+}
