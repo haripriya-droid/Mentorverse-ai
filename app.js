@@ -1,12 +1,14 @@
 /* MentorVerse AI · app.js
-   Calls Gemini API directly from the browser.
+   Calls Gemini via our secure backend proxy (server.js on Render).
+   No API key needed from users — key is stored privately on the server.
    All 8 agent features + chat + localStorage persistence.
 */
 
 // ─────────────────────────────────────────
-// ⚠️  PASTE YOUR GEMINI API KEY HERE ONCE
+// BACKEND PROXY URL
+// Change this to your Render deployment URL after deploying server.js
 // ─────────────────────────────────────────
-const GEMINI_API_KEY = ''; // Paste your key here when running locally
+const BACKEND_URL = 'https://mentorverse-ai-backend.onrender.com';
 
 // ─────────────────────────────────────────
 // STATE
@@ -252,81 +254,64 @@ function requireProfile() {
 }
 
 // ─────────────────────────────────────────
-// GEMINI API CALL
+// GEMINI API CALL (via secure backend proxy)
 // ─────────────────────────────────────────
 async function callGemini(systemInstruction, userMessage) {
-  const apiKey = GEMINI_API_KEY;
-
   const personalitySuffix = PERSONALITY_SUFFIX[state.personality];
   const fullInstruction = systemInstruction + '\n\n' + personalitySuffix;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-  const body = {
-    system_instruction: { parts: [{ text: fullInstruction }] },
-    contents: [{ role: 'user', parts: [{ text: userMessage }] }]
-  };
-
   try {
-    const res = await fetch(url, {
+    const res = await fetch(`${BACKEND_URL}/api/gemini`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify({ systemInstruction: fullInstruction, userMessage })
     });
 
+    const data = await res.json();
+
     if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      const msg = err?.error?.message || `API error ${res.status}`;
-      showToast(`❌ ${msg}`, 'error');
+      showToast(`❌ ${data?.error || 'Server error'}`, 'error');
       return null;
     }
 
-    const data = await res.json();
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    return data.text || '';
   } catch (e) {
-    showToast(`❌ Network error. Check your connection.`, 'error');
+    showToast(`❌ Cannot reach server. Please try again.`, 'error');
     return null;
   }
 }
 
 // ─────────────────────────────────────────
-// GEMINI CHAT (multi-turn)
+// GEMINI CHAT (multi-turn, via backend proxy)
 // ─────────────────────────────────────────
 async function callGeminiChat(conversationHistory) {
-  const apiKey = GEMINI_API_KEY;
-
-  const goal = document.getElementById('career-goal').value.trim();
+  const goal   = document.getElementById('career-goal').value.trim();
   const skills = document.getElementById('current-skills').value.trim();
-  const tech = document.getElementById('pref-tech').value.trim();
+  const tech   = document.getElementById('pref-tech').value.trim();
 
-  const systemInstr = INSTRUCTIONS.chat +
-    (goal ? `\nStudent's career goal: ${goal}.` : '') +
-    (skills ? `\nCurrent skills: ${skills}.` : '') +
-    (tech ? `\nPreferred tech: ${tech}.` : '') +
+  const systemInstruction = INSTRUCTIONS.chat +
+    (goal   ? `\nStudent's career goal: ${goal}.`   : '') +
+    (skills ? `\nCurrent skills: ${skills}.`         : '') +
+    (tech   ? `\nPreferred tech: ${tech}.`           : '') +
     '\n\n' + PERSONALITY_SUFFIX[state.personality];
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-  const body = {
-    system_instruction: { parts: [{ text: systemInstr }] },
-    contents: conversationHistory
-  };
-
   try {
-    const res = await fetch(url, {
+    const res = await fetch(`${BACKEND_URL}/api/gemini/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify({ systemInstruction, conversationHistory })
     });
 
+    const data = await res.json();
+
     if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      showToast(`❌ ${err?.error?.message || 'API error'}`, 'error');
+      showToast(`❌ ${data?.error || 'Server error'}`, 'error');
       return null;
     }
 
-    const data = await res.json();
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    return data.text || '';
   } catch (e) {
-    showToast(`❌ Network error. Check your connection.`, 'error');
+    showToast(`❌ Cannot reach server. Please try again.`, 'error');
     return null;
   }
 }
