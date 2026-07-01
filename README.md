@@ -1,5 +1,9 @@
 # ⬡ MentorVerse AI
 
+<div align="center">
+  <img src="thumbnail.png" alt="MentorVerse AI Thumbnail" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
+</div>
+
 **MentorVerse AI** is a personalized, interactive AI career mentor built for the browser. Powered by the Google Gemini API (`gemini-2.5-flash`), it acts as a dedicated career counselor to help students and developers navigate their tech careers, identify skill gaps, and build actionable study roadmaps.
 
 🚀 **Live Demo:** [MentorVerse AI on GitHub Pages](https://haripriya-droid.github.io/Mentorverse-ai/)
