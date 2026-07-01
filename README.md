@@ -96,4 +96,4 @@ If you want to run this project on your own machine:
 5. Click **Deploy**.
 
 ---
-*Built with ❤️ for students and developers everywhere.*
+*Built by student, built for students*
