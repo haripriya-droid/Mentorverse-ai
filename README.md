@@ -29,6 +29,43 @@ To keep the application secure and user-friendly, the project is split into two 
 1. **Frontend (GitHub Pages):** Contains all the UI, logic, and state management (HTML/CSS/JS).
 2. **Backend Proxy (Render):** A lightweight Express server (`server.js`) that safely holds the Gemini API key and forwards requests from the frontend to the Google Gemini API.
 
+### 📊 Architecture Chart
+
+```mermaid
+graph LR
+    subgraph Frontend [Frontend Client - GitHub Pages]
+        UI[HTML/CSS/JS UI]
+    end
+
+    subgraph Backend [Backend Proxy - Render]
+        Server[Express Server (server.js)]
+    end
+    
+    subgraph GoogleAI [Google]
+        Gemini[Google Gemini API]
+    end
+
+    UI -- HTTP POST Request --> Server
+    Server -- API Request with API Key --> Gemini
+    Gemini -- JSON Response --> Server
+    Server -- Parsed Response --> UI
+```
+
+### 📂 Project Structure
+
+```text
+capstone/
+├── app.css              # Styles for the main application pages
+├── app.html             # Main application layout and interface
+├── app.js               # Frontend logic and API interactions
+├── index.html           # Landing/Home page
+├── package.json         # Node.js dependencies and scripts
+├── README.md            # Project documentation
+├── script.js            # Frontend logic for the landing/home page
+├── server.js            # Express backend proxy server
+└── style.css            # Styles for the landing/home page
+```
+
 ---
 
 ## 🛠️ Technologies Used
