@@ -33,22 +33,22 @@ To keep the application secure and user-friendly, the project is split into two 
 
 ```mermaid
 graph LR
-    subgraph Frontend [Frontend Client - GitHub Pages]
-        UI[HTML/CSS/JS UI]
+    subgraph Frontend ["Frontend Client - GitHub Pages"]
+        UI["HTML/CSS/JS UI"]
     end
 
-    subgraph Backend [Backend Proxy - Render]
-        Server[Express Server (server.js)]
+    subgraph Backend ["Backend Proxy - Render"]
+        Server["Express Server (server.js)"]
     end
     
-    subgraph GoogleAI [Google]
-        Gemini[Google Gemini API]
+    subgraph GoogleAI ["Google"]
+        Gemini["Google Gemini API"]
     end
 
-    UI -- HTTP POST Request --> Server
-    Server -- API Request with API Key --> Gemini
-    Gemini -- JSON Response --> Server
-    Server -- Parsed Response --> UI
+    UI -->|"HTTP POST Request"| Server
+    Server -->|"API Request with API Key"| Gemini
+    Gemini -->|"JSON Response"| Server
+    Server -->|"Parsed Response"| UI
 ```
 
 ### 📂 Project Structure
